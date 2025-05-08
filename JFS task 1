@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner obj = new Scanner(System.in);
+
+        // 1) Print numbers from 10 to 50 using for loop
+        System.out.println("1) Numbers from 10 to 50:");
+        for (int i = 10; i <= 50; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println("\n");
+
+        // 2) Check if a number is positive or negative
+        System.out.print("2) Enter a number to check if it's positive or negative: ");
+        int numCheck = obj.nextInt();
+        if (numCheck > 0) {
+            System.out.println("Output - Positive");
+        } else if (numCheck < 0) {
+            System.out.println("Output - Negative");
+        } else {
+            System.out.println("Output - Zero");
+        }
+        System.out.println();
+
+        // 3) Reverse a number using loop
+        System.out.print("3) Enter a number to reverse: ");
+        int numReverse = obj.nextInt();
+        int reversed = 0;
+        while (numReverse != 0) {
+            int digit = numReverse % 10;
+            reversed = reversed * 10 + digit;
+            numReverse /= 10;
+        }
+        System.out.println("Output = " + reversed);
+        System.out.println();
+
+        // 4) Smallest among three numbers
+        System.out.println("4) Enter three numbers to find the smallest:");
+        int a = obj.nextInt();
+        int b = obj.nextInt();
+        int c = obj.nextInt();
+        int smallest = a;
+        if (b < smallest) smallest = b;
+        if (c < smallest) smallest = c;
+        System.out.println("Smallest number is: " + smallest);
+        System.out.println();
+
+        // 5) Discount calculation
+        System.out.print("5) Enter purchase amount: ");
+        double amount = obj.nextDouble();
+        double discount = 0;
+        if (amount >= 500 && amount <= 1000) {
+            discount = 0.10;
+        } else if (amount > 1000) {
+            discount = 0.20;
+        }
+        double payable = amount - (amount * discount);
+        System.out.println("Final payable amount: " + payable);
+        System.out.println();
+
+        // 6) Print pattern with i, j, k => 5
+        System.out.println("6) Pattern:");
+        for (int i = 5; i >= 1; i--) {
+            for (int j = 5; j > i; j--) {
+                System.out.print(j);
+            }
+            for (int k = i; k >= 1; k--) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
+
+        obj.close();
+    }
+}
